@@ -9,7 +9,10 @@ import com.gdaniel.glpayroll.admin.employeestatus.entity.EmployeeStatusEntity;
 @Repository
 public interface EmployeeStatusRepository extends JpaRepository<EmployeeStatusEntity, Integer> {
 
-    @Query("SELECT e FROM EmployeeStatusEntity e WHERE e.id = ?1")
+    @Query("SELECT e FROM EmployeeStatusEntity e WHERE e.statusId = ?1")
     EmployeeStatusEntity findById(long id);
+
+    @Query("DELETE FROM EmployeeStatusEntity e WHERE e.statusId = :id")
+    void deleteById(Long id);
 
 }

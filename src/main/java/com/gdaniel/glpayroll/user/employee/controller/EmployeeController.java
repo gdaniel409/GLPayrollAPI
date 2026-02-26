@@ -21,7 +21,7 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     @GetMapping("/list")
-    public ResponseEntity<Object> listEmployees(Pageable pageable) {
+    public ResponseEntity<Iterable<EmployeeDto>> listEmployees(Pageable pageable) {
 
         var employeeList = employeeService.findAllWithDocCount(pageable);
         return ResponseEntity.ok(employeeList);

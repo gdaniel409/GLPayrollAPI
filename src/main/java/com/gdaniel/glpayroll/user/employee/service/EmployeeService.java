@@ -20,7 +20,7 @@ import lombok.AllArgsConstructor;
 @Service
 public class EmployeeService {
 
-    private EmployeeRepository employeeRepository;
+    private final EmployeeRepository employeeRepository;
     private final EmployeeStatusService employeeStatusService;
     private final RateTypeService rateTypeService;
 
@@ -69,7 +69,8 @@ public class EmployeeService {
         existingEmployeeEntity.setTelephoneCell(employeeDto.getTelephoneCell());
         existingEmployeeEntity.setRate(employeeDto.getRate());
 
-        EmployeeStatusEntity statusEntity = employeeStatusService.findById(employeeDto.getEmployeeStatus().getId());
+        EmployeeStatusEntity statusEntity = employeeStatusService.getEmployeeStatusRepository()
+                .findById(employeeDto.getEmployeeStatus().getId());
         existingEmployeeEntity.setEmployeeStatus(statusEntity);
 
         RateTypeEntity rateTypeEntity = rateTypeService.findById(employeeDto.getRateType().getId());
@@ -136,7 +137,9 @@ public class EmployeeService {
         entity.setTelephoneCell(dto.getTelephoneCell());
         entity.setRate(dto.getRate());
 
-        EmployeeStatusEntity statusEntity = employeeStatusService.findById(dto.getEmployeeStatus().getId());
+        EmployeeStatusEntity statusEntity = employeeStatusService.getEmployeeStatusRepository()
+                .findById(dto.getEmployeeStatus().getId());
+
         entity.setEmployeeStatus(statusEntity);
 
         RateTypeEntity rateTypeEntity = rateTypeService.findById(dto.getRateType().getId());
