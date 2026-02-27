@@ -15,7 +15,4 @@ import com.gdaniel.glpayroll.user.employee.entitiy.EmployeeEntity;
 @Repository
 public interface EmployeeRepository extends JpaRepository<EmployeeEntity, Long> {
 
-    @Query("SELECT e FROM EmployeeEntity e LEFT JOIN e.documents d")
-    List<EmployeeEntity> findAllWithDocCount();
-
 }

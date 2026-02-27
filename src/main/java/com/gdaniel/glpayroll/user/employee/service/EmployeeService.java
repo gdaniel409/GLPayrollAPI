@@ -28,7 +28,7 @@ public class EmployeeService {
 
         int skip = pageable.getPageSize() * pageable.getPageNumber();
 
-        return employeeRepository.findAllWithDocCount()
+        return employeeRepository.findAll()
                 .stream()
                 .skip(skip).limit(pageable.getPageSize())
 
