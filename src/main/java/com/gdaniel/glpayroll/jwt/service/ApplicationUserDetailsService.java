@@ -45,7 +45,7 @@ public class ApplicationUserDetailsService implements UserDetailsService {
             throw new BadCredentialsException("Unauthorized");
         }
 
-        var userEntity = userService.findByUserName(userName);
+        UserEntity userEntity = userService.findByUserName(userName);
 
         if (userEntity == null) {
             throw new BadCredentialsException("Unauthorized");

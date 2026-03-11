@@ -1,11 +1,7 @@
 package com.gdaniel.glpayroll.user.employee.repository;
 
-import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-
 import com.gdaniel.glpayroll.user.employee.entitiy.EmployeeEntity;
 
 // The left join returns all employees and the document collection if any.  The document collection

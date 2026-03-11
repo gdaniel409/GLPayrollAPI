@@ -1,9 +1,7 @@
 package com.gdaniel.glpayroll.jwt.controller;
 
 import lombok.AllArgsConstructor;
-
 import java.security.NoSuchAlgorithmException;
-
 import java.util.List;
 import org.springframework.http.HttpStatus;
 

@@ -2,6 +2,7 @@ package com.gdaniel.glpayroll.admin.user.service;
 
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import com.gdaniel.glpayroll.admin.role.entity.RoleEntity;
@@ -28,6 +29,7 @@ public class UserService {
     private final UserRepository repo;
     private final ModelMapper mapper;
 
+    @Query("select u from UserEntity u where u.userName = ?1")
     public UserEntity findByUserName(String userName) {
         return repo.findByUserName(userName);
     }
